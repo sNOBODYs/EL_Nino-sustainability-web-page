@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import FootprintMindMap from './FootprintMindMap';
+import EnergyFlow from './EnergyFlow';
 import elninoLogo from "./assets/logo-elnino-black.svg";
 import arrowIcon from "./assets/icon-arrow-up-right.png";
 import serverImage from "./assets/server_image.jpg";
@@ -9,97 +10,6 @@ import './App.css'
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const GROUPS = [
-    {
-      id: 'core',
-      label: 'Core Systems',
-      number: '01',
-      categoryPosition: { x: 24, y: 27 },
-      items: [
-        {
-          id: 'laptops', title: 'Laptops', x: 12, y: 12,
-          details: 'Device power × active hours; include manufacturing emissions when the reporting scope covers hardware.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'desktops', title: 'Desktops', x: 35, y: 12,
-          details: 'Workstation electricity, CPU load, daily runtime and hardware replacement cycles.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: '3d-printer', title: '3D printer', x: 12, y: 43,
-          details: 'Printer power × print hours, plus filament and other materials where relevant.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'printer', title: 'Regular printer', x: 34, y: 44,
-          details: 'Printing and standby electricity, paper consumption and consumables.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-      ],
-    },
-    {
-      id: 'digital',
-      label: 'Digital Systems',
-      number: '02',
-      categoryPosition: { x: 76, y: 27 },
-      items: [
-        {
-          id: 'ai', title: 'AI usage', x: 64, y: 13, featured: true,
-          details: 'Measure inference requests, CPU/GPU-hours, model size, data-centre efficiency and grid carbon intensity.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'servers', title: 'Servers', x: 87, y: 12,
-          details: 'Hosting electricity, average server power, utilization, uptime and provider energy mix.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'cpu', title: 'CPU usage', x: 87, y: 36, kind: 'input',
-          details: 'Track CPU utilization and active compute-hours. Allocate the electricity to AI, servers or devices to avoid double counting.',
-          value: '—', unit: 'CPU-hours / month'
-        },
-        {
-          id: 'codebases', title: 'Codebases', x: 79, y: 48,
-          details: 'CI/CD builds, tests, deployments and background jobs: measure the compute used to run them.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'webpages', title: 'Webpages', x: 63, y: 43,
-          details: 'Page weight, visitor traffic, network transfer and browser processing energy.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-      ],
-    },
-    {
-      id: 'shared',
-      label: 'Shared Resources',
-      number: '03',
-      categoryPosition: { x: 50, y: 80 },
-      items: [
-        {
-          id: 'lighting', title: 'Lighting', x: 25, y: 70,
-          details: 'Lamp wattage × hours of use; account for occupancy and lighting controls.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'cooling', title: 'Air conditioning', x: 75, y: 70,
-          details: 'Cooling system electricity, runtime, efficiency and refrigerant leakage if applicable.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'heating', title: 'Heating', x: 34, y: 95,
-          details: 'Electricity, district heat or fuel consumed for heating, with matching emissions factors.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-        {
-          id: 'electricity', title: 'General electricity', x: 67, y: 95,
-          details: 'Remaining metered office electricity not already assigned to other categories.',
-          value: '—', unit: 'kg CO₂e / year'
-        },
-      ],
-    },
-  ];
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -303,6 +213,26 @@ function App() {
               services and agency operations to understand the footprint of the digital
               solutions we build and support.
             </p>
+          </div>
+        </div>
+      </section>
+      <div className="separator" aria-hidden="true">
+        <span className="separator-step-1"></span>
+        <span className="separator-step-2"></span>
+        <span className="separator-line"></span>
+      </div>
+      <EnergyFlow />
+      <section className="our-suppliers-section">
+        <div className="our-suppliers-container">
+          <div className="our-suppliers-sticker">
+            <span>PROOF AND FACTS</span>
+          </div>
+
+          <div className="our-suppliers-content">
+            <h2 className="our-suppliers-title">
+              Our Suppliers and Partners
+            </h2>
+                   {/* MapBox section - ask for key */}
           </div>
         </div>
       </section>

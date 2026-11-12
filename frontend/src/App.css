@@ -569,7 +569,55 @@ body {
   text-align: left;
   color: #2F313A;
 }
-  
+
+.our-suppliers-section {
+  width: 100%;
+  max-width: 2000px;
+  box-sizing: border-box;
+}
+
+.our-suppliers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 90px 100px 110px;
+  box-sizing: border-box;
+}
+
+.our-suppliers-sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF98CD;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-bottom: 34px;
+}
+
+.our-suppliers-sticker span {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #191919;
+  font-weight: 600;
+}
+
+.our-suppliers-content {
+  max-width: 1500px;
+}
+
+.our-suppliers-title {
+  margin: 0 0 26px;
+  font-family: objektiv-mk2, sans-serif;
+  font-weight: 400;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: #12131A;
+}
 
 @media (max-width: 1425px) {
   .hero-section {
