@@ -1,5 +1,8 @@
-mod db;
-mod routes;
+mod config;
+mod services;
+mod controllers;
+mod repositories;
+mod models;
 
 use tower_http::cors::CorsLayer;
 
@@ -7,8 +10,8 @@ use tower_http::cors::CorsLayer;
 async fn main() {
     dotenvy::dotenv().ok();
 
-    let pool = db::create_pool().await;
-    let app = routes::router(pool).layer(CorsLayer::permissive()); // restrict in production
+    let pool = config::db::create_pool().await;
+    let app = config::routes::router(pool).layer(CorsLayer::permissive()); // restrict in production
 
     let port = std::env::var("PORT").unwrap_or_else(|_| "3000".into());
     let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{port}"))
