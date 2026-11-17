@@ -8,7 +8,7 @@ pub struct ActivityRow {
     pub item: String,
     pub label: String,
     pub quantity: f64,
-    pub kg_co2e_per_unit: f64,
+    pub kg_co2_per_unit: f64,
     pub factor_unit: String,
 }
 

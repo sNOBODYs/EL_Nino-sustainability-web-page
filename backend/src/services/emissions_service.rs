@@ -5,6 +5,7 @@ use crate::{
     repositories::emissions_repository::EmissionsRepository,
 };
 
+#[derive(Clone)]
 pub struct EmissionsService {
     repository: EmissionsRepository,
 }
@@ -30,7 +31,7 @@ impl EmissionsService {
 
         for row in rows {
             let emissions =
-                row.quantity * row.kg_co2e_per_unit;
+                row.quantity * row.kg_co2_per_unit;
 
             let item = categories
                 .entry(row.category)

@@ -3,7 +3,7 @@ use sqlx::MySqlPool;
 
 pub async fn create_pool() -> MySqlPool {
     let opts = MySqlConnectOptions::new()
-        .host(&std::env::var("DB_HOST").expect("DB_HOST missing"))
+        .host(&std::env::var("DB_HOST").expect("DB_HOST missing").as_str())
         .port(
             std::env::var("DB_PORT")
                 .ok()

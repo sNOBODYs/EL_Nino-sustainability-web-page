@@ -2,6 +2,7 @@ use sqlx::MySqlPool;
 
 use crate::models::emissions::ActivityRow;
 
+#[derive(Clone)]
 pub struct EmissionsRepository {
     pool: MySqlPool,
 }
@@ -24,7 +25,7 @@ impl EmissionsRepository {
                 a.item,
                 a.label,
                 a.quantity,
-                f.kg_co2e_per_unit,
+                f.kg_co2_per_unit,
                 f.unit AS factor_unit
             FROM activity_data a
             JOIN emission_factors f
