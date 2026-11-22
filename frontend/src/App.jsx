@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import FootprintMindMap from './FootprintMindMap';
 import EnergyFlow from './EnergyFlow';
+import FAQSection from "./FAQSection";
+import AnnualHighlights from "./AnnualHighlights";
 import elninoLogo from "./assets/logo-elnino-black.svg";
 import arrowIcon from "./assets/icon-arrow-up-right.png";
 import serverImage from "./assets/server_image.jpg";
@@ -120,15 +122,40 @@ function App() {
           <p className="hero-description">Websites are not weightless. Every kilobyte transferred, every server humming in a warehouse,
             and every team stand-up uses electricity. We build and host digital products designed with strict
             carbon budgets and maintained by a team that travels exclusively in electric vehicles.</p>
+
           <div className="hero-section-buttons">
-            <button className="hero-button-primary">
+            <a href="#footprint-mind-map" className="hero-button-primary">
               <span>SEE HOW WE MEASURE</span>
-              <span className="arrow-down"></span>
-            </button>
-            <button className="hero-button-white">
+
+              <svg
+                className="hero-arrow-down"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 4v16" />
+                <path d="m6 14 6 6 6-6" />
+              </svg>
+            </a>
+
+
+            <a
+              href="/services"
+              className="hero-button-white"
+            >
               <span>OUR HOSTING SOLUTIONS</span>
-              <img className="cpu-vector" src={cpuIcon} alt="cpu-icon" />
-            </button>
+              <img
+                className="cpu-vector"
+                src={cpuIcon}
+                alt=""
+              />
+            </a>
           </div>
         </div>
         <div className="hero-section-api-image">
@@ -154,46 +181,10 @@ function App() {
         <span className="separator-step-2"></span>
         <span className="separator-line"></span>
       </div>
-      <section className="annual-highlights">
-        <div className="annual-content">
-          <div className="annual-heading">
-            <span className="annual-heading-line"></span>
-            <h2>Annual Highlights</h2>
-          </div>
-
-          <div className="annual-cards">
-            <div className="annual-card">
-              <h3>Total Emission</h3>
-              <div className="annual-card-value">
-                <span>SOME NUMBER</span>
-              </div>
-            </div>
-
-            <div className="annual-card">
-              <h3>Digital Products</h3>
-              <div className="annual-card-value">
-                <span>SOME NUMBER</span>
-              </div>
-            </div>
-
-            <div className="annual-card">
-              <h3>Offices</h3>
-              <div className="annual-card-value">
-                <span>SOME NUMBER</span>
-              </div>
-            </div>
-
-            <div className="annual-card">
-              <h3>Green Energy</h3>
-              <div className="annual-card-value">
-                <span>SOME NUMBER</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <FootprintMindMap />
+      <AnnualHighlights />
+      <div id="footprint-mind-map" className="mind-map-anchor">
+        <FootprintMindMap />
+      </div>
       <section className="reality-check-section">
         <div className="reality-check-container">
           <div className="reality-check-sticker">
@@ -232,7 +223,7 @@ function App() {
             <h2 className="our-suppliers-title">
               Our Suppliers and Partners
             </h2>
-                   {/* MapBox section - ask for key */}
+            {/* MapBox section - ask for key */}
           </div>
         </div>
       </section>
@@ -241,6 +232,163 @@ function App() {
         <span className="separator-step-2"></span>
         <span className="separator-line"></span>
       </div>
+
+      <section className="facts-section">
+        <div className="facts-container">
+
+          <span className="facts-label">RAW PROCESS FACTS</span>
+
+          <h2 className="facts-heading">
+            Numbers without the green gloss.
+          </h2>
+
+          <p className="facts-description">
+            No green gloss here. There are two (or more if there is any)
+            major blind spots in typical digital footprint models that
+            we are working on integrating without guessing the data.
+          </p>
+
+          <div className="facts-grid">
+            <div className="fact-card">
+              <h3>3</h3>
+              <p className="fact-title">Operating Areas Tracked</p>
+              <p className="fact-description">
+                Infrastructure, transit, and studio offices.
+              </p>
+            </div>
+
+            <div className="fact-card">
+              <h3>5</h3>
+              <p className="fact-title">Footprint Categories</p>
+              <p className="fact-description">
+                Server power, transit, CDN networks,
+                studio heating, fleet charging.
+              </p>
+            </div>
+
+            <div className="fact-card">
+              <h3>Annual</h3>
+              <p className="fact-title">Methodology Review</p>
+              <p className="fact-description">
+                We update our mathematical models each January
+                with fresh grid data.
+              </p>
+            </div>
+          </div>
+
+          <div className="facts-report">
+            <div className="report-content">
+              <h3>Want to know more?</h3>
+              <p>
+                We believe in exact numbers, so we offer full
+                transparency. You can download the full sustainability
+                report here and see for yourself how we make the
+                numbers work in our favour.
+              </p>
+            </div>
+
+            <a
+              href="/reports/sustainability-report.pdf"
+              download="Sustainability-Report.pdf"
+              className="report-button"
+            >
+              SEE THE FULL REPORT HERE
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12" />
+                <path d="m7 10 5 5 5-5" />
+                <path d="M5 17v4h14v-4" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <FAQSection />
+      <div className="separator" aria-hidden="true">
+        <span className="separator-step-1"></span>
+        <span className="separator-step-2"></span>
+        <span className="separator-line"></span>
+      </div>
+
+      <section className="lighter-cta-section">
+        <div className="lighter-cta-container">
+
+          <div className="lighter-cta-sticker">
+            <span>MAKE YOUR SITE LIGHTER</span>
+          </div>
+
+          <h2 className="lighter-cta-heading">
+            Build a faster site with a lighter footprint.
+          </h2>
+
+          <p className="lighter-cta-description">
+            Work with a design and hosting partner that does the
+            heavy structural modeling. Less bloat and faster loads.
+          </p>
+
+          <div className="lighter-cta-buttons">
+
+            <a
+              href="/contact?form=true"
+              className="lighter-cta-primary"
+            >
+              <span>TALK TO US</span>
+
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8
+            8.5 8.5 0 0 1-7.6 4.7
+            8.38 8.38 0 0 1-3.8-.9L3 21
+            l1.9-5.7a8.38 8.38 0 0 1-.9-3.8
+            8.5 8.5 0 0 1 4.7-7.6
+            8.38 8.38 0 0 1 3.8-.9h.5
+            a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </a>
+
+            <a href="/services" className="lighter-cta-secondary">
+              <span>EXPLORE HOSTING</span>
+
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="5" y="5" width="14" height="14" rx="2" />
+                <path d="M9 9h6v6H9z" />
+                <path d="M9 1v4M15 1v4M9 19v4M15 19v4" />
+                <path d="M19 9h4M19 14h4M1 9h4M1 14h4" />
+              </svg>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
     </div>
   )
 }

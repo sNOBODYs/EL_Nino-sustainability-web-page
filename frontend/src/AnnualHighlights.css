@@ -1,0 +1,144 @@
+.annual-highlights {
+  width: 100%;
+  max-width: 2000px;
+  box-sizing: border-box;
+  font-family: objektiv-mk2, sans-serif;
+  background-color: #f6f6f6;
+  color: #222222;
+}
+
+.annual-content {
+  width: 100%;
+  padding: 70px 100px 120px;
+  box-sizing: border-box;
+}
+
+.annual-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 55px;
+}
+
+.annual-heading-line {
+  width: 6px;
+  height: 34px;
+  background-color: #0C12BE;
+  flex-shrink: 0;
+}
+
+.annual-heading h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.annual-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+.annual-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px;
+  border: 2px solid #222222;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.annual-card h3 {
+  margin: 0 0 16px;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.annual-card-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 118px;
+  margin-top: auto;
+  padding: 16px;
+  background-color: #FF98CD;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.annual-card-value > span {
+  font-size: clamp(20px, 1.8vw, 30px);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #222222;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.annual-value-unit {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .annual-content {
+    padding: 70px 50px 90px;
+  }
+
+  .annual-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .annual-card {
+    min-height: 200px;
+  }
+
+  .annual-card-value > span {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 770px) {
+  .annual-content {
+    padding: 65px 24px 75px;
+  }
+
+  .annual-heading {
+    margin-bottom: 40px;
+    gap: 18px;
+  }
+
+  .annual-heading h2 {
+    font-size: 24px;
+  }
+
+  .annual-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .annual-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .annual-card h3 {
+    font-size: 20px;
+  }
+
+  .annual-card-value {
+    min-height: 100px;
+  }
+
+  .annual-card-value > span {
+    font-size: 28px;
+  }
+}
