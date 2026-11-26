@@ -19,6 +19,7 @@ pub fn router(pool: MySqlPool) -> Router {
     // Routes that need the service
     let emissions_routes = Router::new()
         .route("/api/emissions", get(emissions_controller::get_emissions))
+        .route("/api/comparisons", get(emissions_controller::get_comparisons))
         .with_state(emissions_service);
 
     system_routes.merge(emissions_routes)

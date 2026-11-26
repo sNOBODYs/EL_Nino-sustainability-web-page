@@ -1,3 +1,4 @@
+use std::collections::BTreeMap;
 use axum::{
     extract::{Query, State},
     http::StatusCode,
@@ -7,8 +8,8 @@ use serde::Deserialize;
 use serde_json::{json, Value};
 
 use crate::{
-    models::emissions::EmissionsResponse,
-    services::emissions_service::EmissionsService,
+    models::emissions::{EmissionsResponse,Comparison},
+    services::emissions_service::{EmissionsService}
 };
 
 #[derive(Deserialize)]
@@ -32,4 +33,22 @@ pub async fn get_emissions(
         })?;
 
     Ok(Json(emissions))
+}
+
+pub async fn get_comparisons(
+    State(service): State<EmissionsService>,
+    Query(q): Query<YearQuery>,
+) -> Result<Json<BTreeMap<String, Comparison>>, (StatusCode, Json<Value>)> {
+    let comparisons = service
+        .calculate_comparisons(q.year)
+        .await
+        .map_err(|e| {
+            eprintln!("Comparisons error: {e}");
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                Json(json!({ "error": "Could not retrieve comparisons data" })),
+            )
+        })?;
+
+    Ok(Json(comparisons))
 }

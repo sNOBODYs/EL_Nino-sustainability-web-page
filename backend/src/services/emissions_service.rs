@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use crate::{
-    models::emissions::EmissionsResponse,
+    models::emissions::{EmissionsResponse,Comparison},
     repositories::emissions_repository::EmissionsRepository,
 };
 
@@ -47,5 +47,21 @@ impl EmissionsService {
             unit: "kg CO₂e".to_string(),
             categories,
         })
+    }
+
+    pub async fn calculate_comparisons(
+        &self,
+        year: i32,
+    ) -> Result<BTreeMap<String, Comparison>, sqlx::Error> {
+        let emissions = self.calculate_emissions(year).await?;
+
+        Ok(emissions
+            .categories
+            .iter()
+            .map(|(name, items)| {
+                let total: f64 = items.values().sum();
+                (name.clone(), Comparison::from_kg(total))
+            })
+            .collect())
     }
 }
